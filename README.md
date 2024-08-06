@@ -1,17 +1,19 @@
 # Quaternion
 
-Simple implementation of quaternions
+Simple implementation of quaternions 
 
-## Introduction of Quaternion
+__This is my first venture into Computer Graphics, and I believe I'll learn something really cool__
+
+## Introduction to Quaternion
 
 ### Background
 
-- ` Euler angles ` could have glimbal lock. When you rotate an object in a specific order and angle, you may lose one degree of freedom;
+- ` Euler angles ` could cause the gimbal lock. When you rotate an object in a specific order and angle, you may lose one degree of freedom;
 - As for ` Matrix `, although it can avoid Gimbal lock, if your rotation matrix is not an orthogonal matrix, it will cause awful errors, and the rotation matrix needs to store 9 quantities
 
-### Advantage
+### Advantages
 
-` Quaternions ` can represent rotation using only four numbers with
+` Quaternions ` can represent rotation using only 4 numbers:
 
 $$ q = w + xi + yj + zk\ $$
 
@@ -23,7 +25,13 @@ $$ \mathbf{X}' = \mathbf{Q} \mathbf{X} \mathbf{Q}^{-1} $$
 
 $$ \mathbf{Q} = \cos\left(\frac{\theta}{2}\right) + \sin\left(\frac{\theta}{2}\right)(u_x i + u_y j + u_z k) $$
 
-### Shortage 
+And
+
+$$ \mathbf{RotationAxis} = (u_x, u_y, u_z) $$
+
+$$ \mathbf{RotationAngle} = {\theta} $$
+
+### Shortcomings
 
 Quaternions cannot represent translation or scaling, which means that homogeneous coordinates are still needed for these fields
 
@@ -33,9 +41,9 @@ Quaternions cannot represent translation or scaling, which means that homogeneou
 - Overloaded addition, subtraction, and quaternion multiplication including scalar multiplication
 - Implemented four functions: conjugate, modulus, inverse, and rotation
 
-## Useage
+## Usage
 
-after you imported this module
+after you imported this module (` Ctrl + C `  and ` Ctrl + V `solves everything)
 
 ```rs
 fn main(){
