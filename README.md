@@ -6,8 +6,8 @@ Simple implementation of quaternions
 
 ### Background
 
-- ` Euler angles ` could have glimbal lock issues. When you rotate an object in a specific order and angle, you may lose one degree of freedom;
-- As for ` Matrix `, although it can avoid universal joint locks, if your rotation matrix is not an orthogonal matrix, it will cause awful errors, and the rotation matrix needs to store 9 quantities
+- ` Euler angles ` could have glimbal lock. When you rotate an object in a specific order and angle, you may lose one degree of freedom;
+- As for ` Matrix `, although it can avoid Gimbal lock, if your rotation matrix is not an orthogonal matrix, it will cause awful errors, and the rotation matrix needs to store 9 quantities
 
 ### Advantage
 
@@ -17,7 +17,7 @@ $$ q = w + xi + yj + zk\ $$
 
 and when the real part is zero, this pure quaternion can represent a vector
 
-ant we could use the following formula to represent rotation
+We could use the following formula to represent rotation
 
 $$ \mathbf{X}' = \mathbf{Q} \mathbf{X} \mathbf{Q}^{-1} $$
 
