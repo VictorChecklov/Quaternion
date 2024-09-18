@@ -82,7 +82,7 @@ $$ \begin{aligned}&\sin(\alpha - \beta) = \sin(\alpha)\cos(\beta) - \cos(\alpha)
 __And then we get__
 
 $$ \begin{equation}\begin{aligned} 
-& R_z(\gamma)R_y(\frac{\pi}{2})R_x(\gamma) \\
+& R_z(\gamma)R_y(\frac{\pi}{2})R_x(\alpha) \\
 & = \begin{bmatrix} \cos(\gamma) & -\sin(\gamma) & 0 \\
                     \sin(\gamma) & \cos(\gamma) & 0 \\ 
                     0 & 0 & 1 \end{bmatrix}\begin{bmatrix} 0 & 0 & 1 \\
