@@ -14,6 +14,7 @@ __You can read Tutorial.md for more information about Quaternions__
 - Struct:
   - `QuaternionL`: quaternions for f64
   - `QuaternionF`: quaternions for f32
+  - `Quaternion` : generic quaternion
 - Functions:
   - Reloaded: Add, Sub, Mul for Quaterion-Quaternion and Quaternion-Scalar
   - `dot()`: q1.dot(q2) -> f32/f64
@@ -25,14 +26,24 @@ __You can read Tutorial.md for more information about Quaternions__
   - `mat()`: q.mat() -> [[f32/f64; 3]; 3]
   - `nlerp()`: q.nlerp(target, t) -> Quaternion
   - `slerp()`: q.slerp(target, t) -> Quaternion
-  - `squad()`: q.squad(q0, q1, q2, q3, t) -> Quaternion
+  - `squad()`: q.squad(q1, q2, q3, t) -> Quaternion
+
+    __For the generic quaternion__
+    - `mat_homogeneous()`: mat_homogeneous() -> [[T; 4]; 4] for `homogeneous coordinates`
+    - `display()`: display() -> String for the output of the quaternion
+    - Optimized error handling
+      
 ## Example
 ```rust
-fn main(){
-    let q1 = QuaternionL::new(0.0, 1.0, 0.0, 0.0);
-    let shaft = QuaternionL::new(0.0, 0.0, 0.0, 1.0);
-    let q2  = q1.rotate(&shaft, std::f64::consts::FRAC_PI_2);
-    println!("Quaternion-Rotation: {} + {}i + {}j + {}k", q2.w(), q2.x(), q2.y(), q2.z());
-
+fn main() {
+    let p = Quaternion::new(0, 0, 3, 2);
+    let q = Quaternion::new(1, 2, 3, 4);
+    let out = &p * &q;
+    assert_eq!(out.w, -17);
+    assert_eq!(out.x, 6);
+    assert_eq!(out.y, 7);
+    assert_eq!(out.z, -4);
+    println!("Test passed!");
 }
+
 ```
