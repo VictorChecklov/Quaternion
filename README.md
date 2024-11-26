@@ -2,6 +2,10 @@
 
 Simple implementation of quaternions 
 
+In fact, The main part of this reposity is the Toturial.md, not the way I implement the quaternion.
+
+Anyway
+
 __This is my first venture into Computer Graphics, and I believe I'll learn something really cool__
 
 __You can read Tutorial.md for more information about Quaternions__
