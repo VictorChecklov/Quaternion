@@ -31,6 +31,7 @@ __You can read Tutorial.md for more information about Quaternions__
     __For the generic quaternion__
     - `mat_homogeneous()`: mat_homogeneous() -> [[T; 4]; 4] for `homogeneous coordinates`
     - `display()`: display() -> String for the output of the quaternion
+    - allow non-borrow calculate with +-* for quaternions
     - Optimized error handling
       
 ## Example
