@@ -11,8 +11,6 @@ You can read `Tutorial.md` for more detailed information about Quaternions.
 ## Introduction
 
 ### Structs:
-- `QuaternionL`: Quaternion for `f64`
-- `QuaternionF`: Quaternion for `f32`
 - `Quaternion`: Generic quaternion that supports both `f32` and `f64`
 
 ### Functions:
