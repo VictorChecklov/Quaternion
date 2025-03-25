@@ -105,8 +105,7 @@ __So if you really want to use this method, you should consider which axis is mo
 You might wonder, isn't this using a dynamic coordinate system based on the objects' local coordinate. 
 There should be a static coordinate system based on the world coordinate.\
 That's right, but if we adopt a static coordinate system, rotations will become complex and unpredictable, thus losing the advantage of Euler angle. More sadly, after you struggle to utilize this method in your project, you will find that you didn't solve anything.
-
-Why would this happen? Euler Angle could represent any attitude, but this doesn't mean that each attitude refers to unique euler angle.Which means (x, 90, z) and (z, 90, x) could represent the same attitude. Noticed? During a rotation, after you set the second angle as 90 degrees, every operation to the first and the third degrees would lead to the same result. this is the silplist explaination I could give :(
+Why would this happen? Euler Angle could represent any attitude, but this doesn't mean that each attitude refers to unique euler angle.Which means (x, 90, z) and (z, 90, x) could represent the same attitude. Noticed? During a rotation, after you set the second angle as 90 degrees, every operation to the first and the third degrees would lead to the same result. this is the simplist explaination I could give :(
 ___
 ## Matrix ##
 
@@ -125,7 +124,7 @@ $$ R(\theta,\vec{r}) =
                r_yr_x(1-\cos\theta)+r_z\sin\theta&\cos\theta+r_y^2(1-\cos\theta)&r_yr_z(1-\cos\theta)-r_x\sin\theta \\
                r_zr_x(1-\cos\theta)-r_y\sin\theta&r_zr_y(1-\cos\theta)+r_x\sin\theta&\cos\theta+r_z^2(1-\cos\theta)\end{bmatrix} $$
 
-As you can see, it's quite complex, but it can avoid Gimbal Lock. Next, we will discuss its shortcomings.
+As you can see, it's quite complex, but it can avoid Gimbal Lock. And there are other shortcomings about it.
 
 
 - The rotation matrix requires the storage of 9 numbers, with quaternions need only 4 numbers.
@@ -147,14 +146,14 @@ Here are some basic knowledge about quaternions:
 - __Cross: $p\times q=(w_1w_2-x_1x_2-y_1y_2-z_1z_2)+(w_1x_2+x_1w_2+y_1z_2-y_2z_1)i+(w_1y_2-x_1z_2+y_1w_2+z_1x_2)j+(w_1z_2=z_1x_2-y_1x_2+z_1w_2)k$__
 - __Inverse: $q^{-1} = \frac{q^*}{q \cdot q}$__
 
-__We could use the following formula to represent rotation:__
+__We could use the following formula based on Rodrigues' Rotation Formula to represent rotation:__
 
 $$ Q = \cos\left(\frac{\theta}{2}\right) + \sin\left(\frac{\theta}{2}\right)(u_x i + u_y j + u_z k) $$
 
 $$ X' = QXQ^{-1} $$
 
 __With $(u_x, u_y, u_z)$ for the rotation axis and $\theta$ for the rotation angle__\
-__A quaternion can also be converted into  a matrix:__
+__A quaternion can also be converted into a matrix:__
 
 $$ w+xi+yj+zk=\begin{bmatrix}w^2+x^2-y^2-z^2&2xy-2wz&2xz+2wy\\
                              2xy+2wz&w^2-x^2+y^2-z^2&2yz-2wx\\
