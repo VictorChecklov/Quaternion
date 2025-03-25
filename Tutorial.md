@@ -104,7 +104,9 @@ __So if you really want to use this method, you should consider which axis is mo
 
 You might wonder, isn't this using a dynamic coordinate system based on the objects' local coordinate. 
 There should be a static coordinate system based on the world coordinate.\
-That's right, but if we adopt a static coordinate system, rotations will become complex and unpredictable, thus losing the advantage of Euler angle.
+That's right, but if we adopt a static coordinate system, rotations will become complex and unpredictable, thus losing the advantage of Euler angle. More sadly, after you struggle to utilize this method in your project, you will find that you didn't solve anything.
+
+Why would this happen? Euler Angle could represent any attitude, but this doesn't mean that each attitude refers to unique euler angle.Which means (x, 90, z) and (z, 90, x) could represent the same attitude. Noticed? During a rotation, after you set the second angle as 90 degrees, every operation to the first and the third degrees would lead to the same result. this is the silplist explaination I could give :(
 ___
 ## Matrix ##
 
