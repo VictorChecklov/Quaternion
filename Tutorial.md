@@ -101,12 +101,11 @@ $$ \begin{equation}\begin{aligned}
 
 We observe that the rotation matrix $R_z$ is no longer present in the final expression, which demonstrates the loss of one rotational degree of freedom.
 __So if you really want to use this method, you should consider which axis is most impossible to be rotated by 90 degrees,and then place it in the second one.__
+Why would this happen? Euler Angle could represent any attitude, but this doesn't mean that each attitude refers to unique euler angle.Which means (α, π/2, γ) and (-γ, π/2, -α) could represent the same attitude. Noticed? During a rotation, after you set the second angle as 90 degrees, every operation to the first and the third degrees would lead to the same result. this is the simplist explaination I could give :(
 
 You might wonder, isn't this using a dynamic coordinate system based on the objects' local coordinate. 
 There should be a static coordinate system based on the world coordinate.\
-That's right, but if we adopt a static coordinate system, rotations will become complex and unpredictable, thus losing the advantage of Euler angle. More sadly, after you struggle to utilize this method in your project, you will find that you didn't solve anything.
-Why would this happen? Euler Angle could represent any attitude, but this doesn't mean that each attitude refers to unique euler angle.Which means (α, π/2, γ) and (-γ, π/2, -α) could represent the same attitude. Noticed? During a rotation, after you set the second angle as 90 degrees, every operation to the first and the third degrees would lead to the same result. this is the simplist explaination I could give :(
-___
+That's right, but if we adopt a static coordinate system, rotations will become complex and unpredictable, thus losing the advantage of Euler angle. 
 ## Matrix ##
 
 Here we have __Rodrigues' Rotation Formula__,With $\vec{r}$ for the rotation axis and $\theta$ for the rotation angle
